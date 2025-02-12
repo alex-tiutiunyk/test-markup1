@@ -1,0 +1,368 @@
+@use '../variables' as *;
+@use '../mixins';
+
+.header {
+  padding: 39px 0 14px 3px;
+  position: relative;
+
+  @include mixins.breakpoint(xx-large) {
+    padding-top: 30px;
+  }
+
+  @include mixins.breakpoint(large) {
+    padding-top: 20px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    font-size: 18px;
+  }
+
+  @include mixins.breakpoint(small) {
+    position: static;
+    padding-top: 10px;
+  }
+}
+
+.logo {
+  text-indent: -9999px;
+  overflow: hidden;
+  background-image: url('/public/images/logo.png');
+  background-size: 100% 100%;
+  width: 317px;
+  height: 146px;
+  margin-bottom: 85px;
+  display: block;
+
+  @include mixins.breakpoint(xx-large) {
+    width: 285px;
+    height: 131px;
+    margin-bottom: 75px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    margin-bottom: 55px;
+  }
+
+  @include mixins.breakpoint(large) {
+    width: 190px;
+    height: 88px;
+    margin-bottom: 40px;
+  }
+
+  @include mixins.breakpoint(small) {
+    width: 127px;
+    height: 58px;
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    height: 100%;
+  }
+}
+
+@include mixins.breakpoint(small) {
+  .mobile-menu {
+    width: 100%;
+    background-color: rgb(var(--white));
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 99;
+    transform: translateX(-100%);
+
+    @include mixins.transition(transform 0.15s ease-in-out);
+  }
+
+  .menu-active .mobile-menu {
+    transform: translateX(0);
+  }
+}
+
+.icons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 32px;
+  position: absolute;
+  top: 105px;
+  right: 0;
+
+  @include mixins.breakpoint(large) {
+    top: 80px;
+    gap: 20px;
+  }
+
+  @include mixins.breakpoint(small) {
+    position: static;
+    padding: 37px 52px 20px 20px;
+  }
+
+  a {
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: $icon-bg-color;
+    width: 34px;
+    height: 34px;
+
+    @include mixins.transition(background 0.15s ease-in-out);
+
+    @include mixins.breakpoint(large) {
+      width: 28px;
+      height: 28px;
+    }
+
+    &:hover {
+      background: $icon-bg-hover-color;
+    }
+  }
+
+  .inbox {
+    @include mixins.mask-image('/icons/inbox.svg');
+  }
+
+  .approvals {
+    @include mixins.mask-image('/icons/approvals.svg');
+  }
+
+  .help {
+    @include mixins.mask-image('/icons/help.svg');
+  }
+}
+
+.nav {
+  text-transform: uppercase;
+  margin-bottom: 35px;
+  font: 44px/1.3 $futura-std-book;
+
+  @include mixins.breakpoint(xx-large) {
+    font-size: 36px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    font-size: 30px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 22px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+
+    @include mixins.breakpoint(small) {
+      flex-direction: column;
+    }
+  }
+
+  a {
+    color: $link-secondary-color;
+
+    @include mixins.transition(color 0.15s ease-in-out);
+
+    @include mixins.breakpoint(small) {
+      display: block;
+      padding: 10px 20px;
+    }
+
+    &:hover {
+      color: $link-primary-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.search-bar {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include mixins.breakpoint(large) {
+    max-width: 80%;
+  }
+
+  @include mixins.breakpoint(small) {
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  fieldset {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    @include mixins.breakpoint(small) {
+      flex-direction: column;
+    }
+  }
+
+  .search-bar__input {
+    flex-grow: 1;
+    background-color: $bg-input-gray;
+    border: none;
+    line-height: 34px;
+    padding: 2px 10px;
+    height: auto;
+
+    @include mixins.transition(background-color 0.15s ease-in-out);
+
+    @include mixins.breakpoint(medium) {
+      line-height: 28px;
+    }
+
+    @include mixins.breakpoint(small) {
+      order: 0;
+      width: 100%;
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      -webkit-appearance: none;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $bg-input-gray-focus;
+    }
+  }
+}
+
+.search-bar__button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: $text-secondary;
+  cursor: pointer;
+  letter-spacing: 1.7px;
+  font-size: 1.875rem;
+
+  @include mixins.transition(color 0.15s ease-in-out);
+
+  @include mixins.breakpoint(large) {
+    font-size: 1em;
+  }
+
+  @include mixins.breakpoint(small) {
+    order: 1;
+    width: 100%;
+  }
+
+  &:hover {
+    color: $link-primary-color;
+  }
+}
+
+.btn-burger {
+  width: 28px;
+  height: 25px;
+  text-indent: -9999px;
+  overflow: hidden;
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  z-index: 101;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+
+  @include mixins.transform(rotate(0deg));
+  @include mixins.transition(0.15s ease-in-out);
+
+  @include mixins.breakpoint(small) {
+    display: block;
+  }
+}
+
+.btn-burger span {
+  position: absolute;
+  left: 0;
+  border-radius: 2px;
+  height: 4px;
+  width: 50%;
+  background-color: $bg-gray-300;
+  opacity: 1;
+
+  @include mixins.transform(rotate(0deg));
+  @include mixins.transition(0.15s ease-in-out);
+}
+
+.btn-burger span:nth-child(even) {
+  left: 50%;
+  border-radius: 0 2px 2px 0;
+}
+
+.btn-burger span:nth-child(odd) {
+  left: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.btn-burger span:nth-child(1),
+.btn-burger span:nth-child(2) {
+  top: 0;
+}
+
+.btn-burger span:nth-child(3),
+.btn-burger span:nth-child(4) {
+  top: 10px;
+}
+
+.btn-burger span:nth-child(5),
+.btn-burger span:nth-child(6) {
+  top: 21px;
+}
+
+.menu-active .btn-burger span:nth-child(1),
+.menu-active .btn-burger span:nth-child(6) {
+  @include mixins.transform(rotate(45deg));
+}
+
+.menu-active .btn-burger span:nth-child(2),
+.menu-active .btn-burger span:nth-child(5) {
+  @include mixins.transform(rotate(-45deg));
+}
+
+.menu-active .btn-burger span:nth-child(1) {
+  left: 0;
+  top: 4px;
+}
+
+.menu-active .btn-burger span:nth-child(2) {
+  left: calc(50% - 4px);
+  top: 4px;
+}
+
+.menu-active .btn-burger span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+
+.menu-active .btn-burger span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+
+.menu-active .btn-burger span:nth-child(5) {
+  left: 0;
+  top: 13px;
+}
+
+.menu-active .btn-burger span:nth-child(6) {
+  left: calc(50% - 4px);
+  top: 13px;
+}

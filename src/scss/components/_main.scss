@@ -1,0 +1,378 @@
+@use '../variables' as *;
+@use '../mixins';
+
+.main {
+  flex-grow: 1;
+  order: 1;
+  overflow: hidden;
+
+  @include mixins.breakpoint(small) {
+    order: 0;
+  }
+
+  & > .page-title:first-child {
+    margin-top: -3px;
+
+    @include mixins.breakpoint(x-large) {
+      margin-top: 0;
+    }
+  }
+}
+
+.page-title {
+  font: 2.375rem/1 $futura-std-book;
+  margin: 0 0 53px;
+  text-transform: uppercase;
+
+  @include mixins.breakpoint(x-large) {
+    margin-bottom: 40px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  @include mixins.breakpoint(small) {
+    font-size: 1.5rem;
+  }
+}
+
+.groups {
+  margin: 0 0 20px;
+  padding: 2px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: rgb(var(--white) / 0.6);
+  border: 3px solid $border-gray-50;
+
+  @include mixins.breakpoint(x-large) {
+    font-size: 22px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 16px;
+    border-width: 1px;
+    gap: 4px;
+  }
+
+  @include mixins.breakpoint(small) {
+    font-size: 14px;
+  }
+}
+
+.groups__item {
+  position: relative;
+
+  a {
+    background-color: $bg-gray-100;
+    color: $text-white;
+    display: inline-flex;
+    padding: 6px 45px 6px 13px;
+    white-space: nowrap;
+
+    @include mixins.transition(background-color 0.15s ease-in-out);
+
+    @include mixins.breakpoint(large) {
+      padding: 3px 28px 3px 7px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &:hover a {
+    background-color: $bg-gray-200;
+  }
+}
+
+.groups__delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: $text-white;
+  border: none;
+  background: none;
+  width: 40px;
+  cursor: pointer;
+
+  @include mixins.breakpoint(large) {
+    width: 22px;
+  }
+
+  &:hover {
+    background-color: rgb(var(--white) / 0.2);
+  }
+}
+
+.add-user-link {
+  display: inline-flex;
+  margin-bottom: 16px;
+  font-family: $open-sans-light;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 11px;
+  align-items: center;
+
+  @include mixins.breakpoint(small) {
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+}
+
+.form-row__label {
+  min-width: 142px;
+
+  @include mixins.breakpoint(medium) {
+    min-width: 84px;
+  }
+}
+
+.form-row-select {
+  width: 320px;
+
+  @include mixins.breakpoint(medium) {
+    width: 250px;
+  }
+
+  @include mixins.breakpoint(small) {
+    width: 100%;
+  }
+}
+
+.page-subtitle {
+  font-size: 1.875rem;
+  text-transform: uppercase;
+  margin: 0 0 11px;
+
+  @include mixins.breakpoint(large) {
+    font-size: 1.25rem;
+  }
+}
+
+.text-box {
+  color: $text-white;
+  background-color: $bg-gray-300;
+  padding: 22px 34px 23px;
+  margin-bottom: 46px;
+  font: 1em/1.3 $open-sans-light;
+  word-spacing: -0.5px;
+
+  @include mixins.breakpoint(large) {
+    padding: 15px 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.preview-tabs {
+  display: flex;
+  align-items: start;
+  margin-bottom: 50px;
+  gap: 27px;
+
+  @include mixins.breakpoint(x-large) {
+    flex-direction: column;
+  }
+}
+
+.preview-tabs__content {
+  width: 56.5%;
+  display: flex;
+  position: relative;
+
+  @include mixins.breakpoint(x-large) {
+    width: 100%;
+  }
+
+  @include mixins.breakpoint(medium) {
+    flex-direction: column;
+  }
+}
+
+.preview-tabs__img {
+  min-width: 65%;
+  min-height: 540px;
+  object-fit: cover;
+
+  @include mixins.breakpoint(xx-large) {
+    min-width: 52%;
+    min-height: 500px;
+  }
+
+  @include mixins.breakpoint(large) {
+    min-height: 400px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    min-width: 100%;
+    min-height: 200px;
+    height: 200px;
+  }
+}
+
+.preview-tabs__text {
+  background-color: $bg-blue-100;
+  color: $text-white;
+  padding: 20px 20px 65px;
+  font: 1rem/1.23 $open-sans-light;
+
+  @include mixins.breakpoint(large) {
+    font-size: 0.875rem;
+    padding: 15px 15px 40px;
+  }
+
+  .title {
+    font: 1rem/1.3 $open-sans-semibold;
+    color: $text-blue;
+    margin: 0 0 39px;
+
+    @include mixins.breakpoint(large) {
+      margin: 0 0 20px;
+      font-size: 0.875rem;
+    }
+  }
+
+  blockquote {
+    margin: 0 0 21px;
+
+    @include mixins.breakpoint(large) {
+      margin-bottom: 10px;
+    }
+  }
+
+  cite {
+    font-style: normal;
+    font-family: $open-sans-semibold;
+    color: $text-blue;
+  }
+
+  .date {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    font-family: $open-sans-semibold;
+    color: $text-blue;
+    white-space: nowrap;
+
+    @include mixins.breakpoint(large) {
+      right: 14px;
+      bottom: 14px;
+    }
+  }
+}
+
+.preview-tabs_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  max-width: 400px;
+
+  @include mixins.breakpoint(medium) {
+    gap: 12px;
+  }
+}
+
+.preview-tabs__item {
+  width: 104px;
+  height: 104px;
+  cursor: pointer;
+  position: relative;
+  background-color: $bg-gray-300;
+
+  @include mixins.breakpoint(medium) {
+    width: 80px;
+    height: 80px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 7px solid transparent;
+
+    @include mixins.transition(border-color 0.15s ease-in-out);
+
+    @include mixins.breakpoint(medium) {
+      border-width: 4px;
+    }
+  }
+
+  &:hover:after,
+  &.active:after {
+    border-color: $border-blue-100;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+
+  @include mixins.breakpoint(medium) {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    @include mixins.breakpoint(medium) {
+      min-width: 150px;
+    }
+
+    @include mixins.breakpoint(small) {
+      width: 100%;
+    }
+  }
+}
+
+.send-box {
+  max-width: 70%;
+  flex-grow: 1;
+
+  @include mixins.breakpoint(medium) {
+    max-width: 100%;
+  }
+
+  fieldset {
+    display: flex;
+    gap: 28px;
+
+    @include mixins.breakpoint(medium) {
+      gap: 10px;
+    }
+
+    @include mixins.breakpoint(small) {
+      flex-direction: column;
+    }
+  }
+
+  button {
+    @include mixins.breakpoint(small) {
+      order: 1;
+    }
+  }
+}
+
+.send-box__input {
+  flex-grow: 1;
+
+  @include mixins.breakpoint(small) {
+    order: 0;
+  }
+}

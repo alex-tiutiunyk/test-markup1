@@ -1,0 +1,38 @@
+@mixin transition($value) {
+  transition: $value;
+}
+
+@mixin transform($value) {
+  transform: $value;
+}
+
+@mixin mask-image($url) {
+  mask-image: url($url);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center center;
+}
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == x-large {
+    @media (max-width: 1599px) {
+      @content;
+    }
+  } @else if $point == xx-large {
+    @media (max-width: 1999px) {
+      @content;
+    }
+  }
+}

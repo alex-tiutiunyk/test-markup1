@@ -1,0 +1,397 @@
+@use '../variables' as *;
+@use '../mixins';
+
+:root {
+  --tile-gap: 24px;
+
+  @include mixins.breakpoint(large) {
+    --tile-gap: 14px;
+  }
+}
+
+.sidebar {
+  min-width: 496px;
+  order: 0;
+
+  @include mixins.breakpoint(xx-large) {
+    min-width: 410px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    min-width: 340px;
+  }
+
+  @include mixins.breakpoint(large) {
+    min-width: 280px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    min-width: 220px;
+  }
+
+  @include mixins.breakpoint(small) {
+    order: 1;
+    padding-top: 20px;
+  }
+}
+
+.profile-tile {
+  background-color: rgb(var(--blue-50));
+  display: flex;
+  align-items: start;
+  gap: 19px;
+  color: $text-white;
+  font: 23px/1.2 $futura-std-light;
+  letter-spacing: 0.2px;
+  padding: 19px 19px 21px;
+  margin-bottom: var(--tile-gap);
+  letter-spacing: -0.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  @include mixins.breakpoint(xx-large) {
+    font-size: 19px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    font-size: 12px;
+  }
+
+  @include mixins.breakpoint(small) {
+    font-size: 14px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(var(--black) / 0.1);
+    transform: translateX(-100%);
+    z-index: -1;
+
+    @include mixins.transition(transform 0.15s ease-in-out);
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    &:after {
+      transform: translateX(0);
+    }
+  }
+
+  img {
+    height: auto;
+    margin-top: 2px;
+    max-width: 100%;
+
+    @include mixins.breakpoint(xx-large) {
+      width: 30%;
+    }
+
+    @include mixins.breakpoint(large) {
+      width: 25%;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.profile-tile__text {
+  flex-grow: 1;
+}
+
+.profile-tile__title {
+  font: 36px/1 $futura-std-book;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  @include mixins.breakpoint(xx-large) {
+    font-size: 30px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    font-size: 24px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 20px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    font-size: 16px;
+    padding-top: 4px;
+  }
+
+  @include mixins.breakpoint(small) {
+    font-size: 20px;
+  }
+}
+
+.sidebar-nav {
+  margin-bottom: var(--tile-gap);
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--tile-gap);
+  }
+}
+
+.sidebar-tile {
+  position: relative;
+  overflow: hidden;
+  background-color: $bg-gray-300;
+  min-height: 131px;
+
+  @include mixins.breakpoint(xx-large) {
+    min-height: 108px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    min-height: 89px;
+  }
+
+  @include mixins.breakpoint(large) {
+    min-height: 73px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    min-height: 58px;
+  }
+
+  @include mixins.breakpoint(small) {
+    min-height: 76px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+li.sidebar-tile {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(var(--black) / 0.3);
+    transform: translateX(-100%);
+
+    @include mixins.transition(transform 0.15s ease-in-out);
+  }
+
+  &:hover::after {
+    transform: translateX(0);
+  }
+}
+
+.sidebar-tile__holder {
+  position: absolute;
+  inset: 0;
+  color: $text-white;
+  display: flex;
+  padding: 17px 25px;
+  gap: 20px;
+  z-index: 1;
+
+  @include mixins.breakpoint(xx-large) {
+    padding: 10px 20px;
+  }
+
+  @include mixins.breakpoint(large) {
+    padding: 5px 10px;
+    gap: 14px;
+  }
+
+  &.column {
+    flex-direction: column;
+    gap: 12px;
+
+    @include mixins.breakpoint(large) {
+      gap: 8px;
+    }
+
+    @include mixins.breakpoint(medium) {
+      gap: 4px;
+    }
+
+    @include mixins.breakpoint(small) {
+      gap: 8px;
+    }
+
+    .sidebar-tile__title {
+      flex-grow: 0;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .sidebar-tile__input {
+    border: 2px solid rgb(var(--white));
+    background-color: $bg-input-white;
+    padding: 2px 10px;
+    line-height: 34px;
+    color: $input-text-white;
+    height: auto;
+
+    @include mixins.transition(background-color 0.15s ease-in-out);
+
+    @include mixins.breakpoint(x-large) {
+      line-height: 24px;
+    }
+
+    @include mixins.breakpoint(large) {
+      line-height: 20px;
+    }
+
+    @include mixins.breakpoint(medium) {
+      line-height: 18px;
+      padding: 1px 7px;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $bg-input-white-focus;
+      border-color: rgb(var(--white));
+    }
+  }
+}
+
+.sidebar-tile__title {
+  font: 30px/1 $futura-std-book;
+  flex-grow: 1;
+  letter-spacing: 0.6px;
+  padding-top: 5px;
+
+  @include mixins.breakpoint(xx-large) {
+    font-size: 26px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    font-size: 20px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 17px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    font-size: 13px;
+  }
+
+  @include mixins.breakpoint(small) {
+    font-size: 18px;
+  }
+}
+
+.sidebar-tile__points {
+  text-align: right;
+  align-self: center;
+  font: 26px/1.2 $futura-std-light;
+
+  @include mixins.breakpoint(xx-large) {
+    font-size: 22px;
+  }
+
+  @include mixins.breakpoint(x-large) {
+    font-size: 18px;
+  }
+
+  @include mixins.breakpoint(large) {
+    font-size: 16px;
+  }
+
+  @include mixins.breakpoint(medium) {
+    font-size: 13px;
+  }
+
+  @include mixins.breakpoint(small) {
+    font-size: 16px;
+  }
+
+  em {
+    display: block;
+    font-style: normal;
+    font-size: 48px;
+    line-height: 1.1;
+
+    @include mixins.breakpoint(xx-large) {
+      font-size: 40px;
+    }
+
+    @include mixins.breakpoint(x-large) {
+      font-size: 32px;
+    }
+
+    @include mixins.breakpoint(large) {
+      font-size: 26px;
+    }
+
+    @include mixins.breakpoint(medium) {
+      font-size: 20px;
+    }
+
+    @include mixins.breakpoint(small) {
+      font-size: 26px;
+    }
+  }
+}
+
+.sidebar-tile__ico {
+  text-indent: -9999px;
+  overflow: hidden;
+  background-color: rgb(var(--white));
+  align-self: center;
+  width: 78px;
+  height: 78px;
+
+  @include mixins.breakpoint(xx-large) {
+    width: 50px;
+    height: 50px;
+  }
+
+  @include mixins.breakpoint(large) {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.badge {
+    @include mixins.mask-image('/icons/badge.svg');
+  }
+
+  &.award {
+    @include mixins.mask-image('/icons/award.svg');
+  }
+
+  &.quizzes {
+    @include mixins.mask-image('/icons/quizzes.svg');
+  }
+}
