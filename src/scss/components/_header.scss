@@ -2,56 +2,22 @@
 @use '../mixins';
 
 .header {
-  padding: 39px 0 14px 3px;
   position: relative;
-
-  @include mixins.breakpoint(xx-large) {
-    padding-top: 30px;
-  }
-
-  @include mixins.breakpoint(large) {
-    padding-top: 20px;
-  }
-
-  @include mixins.breakpoint(medium) {
-    font-size: 18px;
-  }
-
-  @include mixins.breakpoint(small) {
-    position: static;
-    padding-top: 10px;
-  }
+  padding-top: clamp(0.625rem, 0.245rem + 1.62vw, 2.375rem);
+  padding-bottom: clamp(1.875rem, 1.549rem + 1.39vw, 3.375rem);
 }
 
 .logo {
-  text-indent: -9999px;
+  display: block;
   overflow: hidden;
+  width: clamp(7.938rem, 5.356rem + 11.01vw, 19.813rem);
+  height: clamp(3.625rem, 2.429rem + 5.1vw, 9.125rem);
+  margin-bottom: clamp(2.5rem, 0.878rem + 3.38vw, 5.313rem);
+  text-indent: -9999px;
   background-image: url('/public/images/logo.png');
   background-size: 100% 100%;
-  width: 317px;
-  height: 146px;
-  margin-bottom: 85px;
-  display: block;
-
-  @include mixins.breakpoint(xx-large) {
-    width: 285px;
-    height: 131px;
-    margin-bottom: 75px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    margin-bottom: 55px;
-  }
-
-  @include mixins.breakpoint(large) {
-    width: 190px;
-    height: 88px;
-    margin-bottom: 40px;
-  }
 
   @include mixins.breakpoint(small) {
-    width: 127px;
-    height: 58px;
     margin: 0;
   }
 
@@ -63,36 +29,35 @@
 
 @include mixins.breakpoint(small) {
   .mobile-menu {
-    width: 100%;
-    background-color: rgb(var(--white));
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    overflow-y: scroll;
     z-index: 99;
-    transform: translateX(-100%);
+    width: 100%;
+    overflow-y: scroll;
+    height: 100vh;
+    background-color: rgb(var(--white));
 
+    @include mixins.transform(translateX(-100%));
     @include mixins.transition(transform 0.15s ease-in-out);
   }
 
   .menu-active .mobile-menu {
-    transform: translateX(0);
+    @include mixins.transform(translateX(0));
   }
 }
 
 .icons-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   gap: 32px;
   position: absolute;
-  top: 105px;
+  list-style: none;
+  top: clamp(3.75rem, 2.128rem + 3.38vw, 6.563rem);
   right: 0;
+  padding: 0;
+  margin: 0;
 
   @include mixins.breakpoint(large) {
-    top: 80px;
     gap: 20px;
   }
 
@@ -103,11 +68,11 @@
 
   a {
     display: block;
-    text-indent: -9999px;
     overflow: hidden;
-    background: $icon-bg-color;
     width: 34px;
     height: 34px;
+    text-indent: -9999px;
+    background: $icon-bg-color;
 
     @include mixins.transition(background 0.15s ease-in-out);
 
@@ -135,33 +100,20 @@
 }
 
 .nav {
-  text-transform: uppercase;
   margin-bottom: 35px;
-  font: 44px/1.3 $futura-std-book;
-
-  @include mixins.breakpoint(xx-large) {
-    font-size: 36px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    font-size: 30px;
-  }
-
-  @include mixins.breakpoint(large) {
-    font-size: 22px;
-  }
+  font: clamp(1.125rem, 0.188rem + 1.95vw, 2.75rem) / 1.3 $futura-std-book;
+  text-transform: uppercase;
 
   @include mixins.breakpoint(medium) {
-    font-size: 18px;
     margin-bottom: 25px;
   }
 
   ul {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: space-between;
 
     @include mixins.breakpoint(small) {
       flex-direction: column;
@@ -197,6 +149,7 @@
   @include mixins.breakpoint(small) {
     flex-direction: column;
     max-width: 100%;
+    padding-bottom: 15px;
   }
 
   fieldset {
@@ -206,16 +159,17 @@
 
     @include mixins.breakpoint(small) {
       flex-direction: column;
+      gap: 14px;
     }
   }
 
   .search-bar__input {
     flex-grow: 1;
-    background-color: $bg-input-gray;
-    border: none;
-    line-height: 34px;
     padding: 2px 10px;
     height: auto;
+    line-height: 34px;
+    border: none;
+    background-color: $bg-input-gray;
 
     @include mixins.transition(background-color 0.15s ease-in-out);
 
@@ -243,23 +197,21 @@
 }
 
 .search-bar__button {
-  background: none;
-  border: none;
   padding: 0;
-  color: $text-secondary;
-  cursor: pointer;
   letter-spacing: 1.7px;
-  font-size: 1.875rem;
+  font-size: clamp(1rem, -3.173rem + 6.73vw, 1.875rem);
+  color: $text-secondary;
+  background: none;
+  cursor: pointer;
+  border: none;
 
   @include mixins.transition(color 0.15s ease-in-out);
-
-  @include mixins.breakpoint(large) {
-    font-size: 1em;
-  }
 
   @include mixins.breakpoint(small) {
     order: 1;
     width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   &:hover {
@@ -268,18 +220,18 @@
 }
 
 .btn-burger {
-  width: 28px;
-  height: 25px;
-  text-indent: -9999px;
-  overflow: hidden;
+  display: none;
   position: absolute;
   top: 40px;
   right: 15px;
   z-index: 101;
+  width: 28px;
+  height: 25px;
+  overflow: hidden;
+  text-indent: -9999px;
+  cursor: pointer;
   border: none;
   background: none;
-  cursor: pointer;
-  display: none;
 
   @include mixins.transform(rotate(0deg));
   @include mixins.transition(0.15s ease-in-out);
@@ -287,82 +239,88 @@
   @include mixins.breakpoint(small) {
     display: block;
   }
+
+  span {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 50%;
+    opacity: 1;
+    border-radius: 2px;
+    background-color: $bg-gray-300;
+
+    @include mixins.transform(rotate(0deg));
+    @include mixins.transition(0.15s ease-in-out);
+
+    &:nth-child(even) {
+      left: 50%;
+      border-radius: 0 2px 2px 0;
+    }
+
+    &:nth-child(odd) {
+      left: 0;
+      border-radius: 2px 0 0 2px;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      top: 0;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      top: 10px;
+    }
+
+    &:nth-child(5),
+    &:nth-child(6) {
+      top: 21px;
+    }
+  }
 }
 
-.btn-burger span {
-  position: absolute;
-  left: 0;
-  border-radius: 2px;
-  height: 4px;
-  width: 50%;
-  background-color: $bg-gray-300;
-  opacity: 1;
+.menu-active {
+  .btn-burger {
+    span {
+      &:nth-child(1),
+      &:nth-child(6) {
+        @include mixins.transform(rotate(45deg));
+      }
 
-  @include mixins.transform(rotate(0deg));
-  @include mixins.transition(0.15s ease-in-out);
-}
+      &:nth-child(2),
+      &:nth-child(5) {
+        @include mixins.transform(rotate(-45deg));
+      }
 
-.btn-burger span:nth-child(even) {
-  left: 50%;
-  border-radius: 0 2px 2px 0;
-}
+      &:nth-child(1) {
+        left: 0;
+        top: 4px;
+      }
 
-.btn-burger span:nth-child(odd) {
-  left: 0;
-  border-radius: 2px 0 0 2px;
-}
+      &:nth-child(2) {
+        left: calc(50% - 4px);
+        top: 4px;
+      }
 
-.btn-burger span:nth-child(1),
-.btn-burger span:nth-child(2) {
-  top: 0;
-}
+      &:nth-child(3) {
+        left: -50%;
+        opacity: 0;
+      }
 
-.btn-burger span:nth-child(3),
-.btn-burger span:nth-child(4) {
-  top: 10px;
-}
+      &:nth-child(4) {
+        left: 100%;
+        opacity: 0;
+      }
 
-.btn-burger span:nth-child(5),
-.btn-burger span:nth-child(6) {
-  top: 21px;
-}
+      &:nth-child(5) {
+        left: 0;
+        top: 13px;
+      }
 
-.menu-active .btn-burger span:nth-child(1),
-.menu-active .btn-burger span:nth-child(6) {
-  @include mixins.transform(rotate(45deg));
-}
-
-.menu-active .btn-burger span:nth-child(2),
-.menu-active .btn-burger span:nth-child(5) {
-  @include mixins.transform(rotate(-45deg));
-}
-
-.menu-active .btn-burger span:nth-child(1) {
-  left: 0;
-  top: 4px;
-}
-
-.menu-active .btn-burger span:nth-child(2) {
-  left: calc(50% - 4px);
-  top: 4px;
-}
-
-.menu-active .btn-burger span:nth-child(3) {
-  left: -50%;
-  opacity: 0;
-}
-
-.menu-active .btn-burger span:nth-child(4) {
-  left: 100%;
-  opacity: 0;
-}
-
-.menu-active .btn-burger span:nth-child(5) {
-  left: 0;
-  top: 13px;
-}
-
-.menu-active .btn-burger span:nth-child(6) {
-  left: calc(50% - 4px);
-  top: 13px;
+      &:nth-child(6) {
+        left: calc(50% - 4px);
+        top: 13px;
+      }
+    }
+  }
 }

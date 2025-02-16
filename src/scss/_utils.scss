@@ -3,15 +3,7 @@
 
 // font size
 .text-lg {
-  font-size: 1.875rem;
-
-  @include mixins.breakpoint(x-large) {
-    font-size: 1.625rem;
-  }
-
-  @include mixins.breakpoint(large) {
-    font-size: 1.125rem;
-  }
+  font-size: clamp(1.125rem, 0.454rem + 1.08vw, 1.875rem);
 }
 
 // font family

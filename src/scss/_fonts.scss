@@ -1,34 +1,39 @@
 @font-face {
   font-family: 'Open Sans';
+  src: local('Open Sans'), url('/fonts/OpenSans-Regular.woff2') format('woff2');
   font-style: normal;
   font-weight: normal;
-  src: local('Open Sans'), url('/fonts/OpenSans-Regular.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Open Sans Light';
+  src: local('Open Sans Light'), url('/fonts/OpenSans-Light.woff2') format('woff2');
   font-style: normal;
   font-weight: normal;
-  src: local('Open Sans Light'), url('/fonts/OpenSans-Light.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Open Sans SemiBold';
+  src: local('Open Sans SemiBold'), url('/fonts/OpenSans-SemiBold.woff2') format('woff2');
   font-style: normal;
   font-weight: normal;
-  src: local('Open Sans SemiBold'), url('/fonts/OpenSans-SemiBold.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Futura Std Book';
+  src: local('Futura Std Book'), url('/fonts/FuturaStd-Book.woff2') format('woff2');
   font-style: normal;
   font-weight: normal;
-  src: local('Futura Std Book'), url('/fonts/FuturaStdBook.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Futura Std Light';
+  src: local('Futura Std Light'), url('/fonts/FuturaStd-Light.woff2') format('woff2');
   font-style: normal;
   font-weight: normal;
-  src: local('Futura Std Light'), url('/fonts/FuturaStdLight.woff') format('woff');
+  font-display: swap;
 }

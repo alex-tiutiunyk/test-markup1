@@ -2,32 +2,12 @@
 @use '../mixins';
 
 :root {
-  --tile-gap: 24px;
-
-  @include mixins.breakpoint(large) {
-    --tile-gap: 14px;
-  }
+  --tile-gap: clamp(0.625rem, 0.12rem + 1.05vw, 1.5rem);
 }
 
 .sidebar {
-  min-width: 496px;
+  min-width: clamp(13.75rem, 3.804rem + 20.72vw, 31rem);
   order: 0;
-
-  @include mixins.breakpoint(xx-large) {
-    min-width: 410px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    min-width: 340px;
-  }
-
-  @include mixins.breakpoint(large) {
-    min-width: 280px;
-  }
-
-  @include mixins.breakpoint(medium) {
-    min-width: 220px;
-  }
 
   @include mixins.breakpoint(small) {
     order: 1;
@@ -36,41 +16,30 @@
 }
 
 .profile-tile {
-  background-color: rgb(var(--blue-50));
   display: flex;
   align-items: start;
   gap: 19px;
-  color: $text-white;
-  font: 23px/1.2 $futura-std-light;
-  letter-spacing: 0.2px;
-  padding: 19px 19px 21px;
-  margin-bottom: var(--tile-gap);
-  letter-spacing: -0.5px;
   position: relative;
-  overflow: hidden;
   z-index: 0;
-
-  @include mixins.breakpoint(xx-large) {
-    font-size: 19px;
-  }
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: var(--tile-gap);
+  font: clamp(0.75rem, 0.354rem + 0.83vw, 1.438rem) / 1.2 $futura-std-light;
+  letter-spacing: -0.5px;
+  color: $text-white;
+  background-color: rgb(var(--blue-50));
 
   @include mixins.breakpoint(x-large) {
     padding: 10px;
-    font-size: 15px;
     letter-spacing: 0.5px;
   }
 
   @include mixins.breakpoint(large) {
-    font-size: 14px;
     gap: 10px;
   }
 
-  @include mixins.breakpoint(medium) {
-    font-size: 12px;
-  }
-
   @include mixins.breakpoint(small) {
-    font-size: 14px;
+    font-size: clamp(0.875rem, -0.02rem + 4.47vw, 2.125rem);
   }
 
   &:after {
@@ -79,10 +48,10 @@
     top: 0;
     left: 0;
     bottom: 0;
+    z-index: -1;
     width: 100%;
     background-color: rgb(var(--black) / 0.1);
     transform: translateX(-100%);
-    z-index: -1;
 
     @include mixins.transition(transform 0.15s ease-in-out);
   }
@@ -97,15 +66,11 @@
 
   img {
     height: auto;
+    width: clamp(3.125rem, -0.767rem + 8.11vw, 9.875rem);
     margin-top: 2px;
-    max-width: 100%;
 
-    @include mixins.breakpoint(xx-large) {
-      width: 30%;
-    }
-
-    @include mixins.breakpoint(large) {
-      width: 25%;
+    @include mixins.breakpoint(small) {
+      width: clamp(3.375rem, -1.905rem + 26.4vw, 10.75rem);
     }
   }
 
@@ -119,30 +84,17 @@
 }
 
 .profile-tile__title {
-  font: 36px/1 $futura-std-book;
   margin: 0;
-  text-transform: uppercase;
+  font: clamp(0.875rem, 0.082rem + 1.65vw, 2.25rem) / 1 $futura-std-book;
   letter-spacing: 1px;
-
-  @include mixins.breakpoint(xx-large) {
-    font-size: 30px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    font-size: 24px;
-  }
-
-  @include mixins.breakpoint(large) {
-    font-size: 20px;
-  }
+  text-transform: uppercase;
 
   @include mixins.breakpoint(medium) {
-    font-size: 16px;
     padding-top: 4px;
   }
 
   @include mixins.breakpoint(small) {
-    font-size: 20px;
+    font-size: clamp(1.25rem, -0.003rem + 6.26vw, 3rem);
   }
 }
 
@@ -150,39 +102,23 @@
   margin-bottom: var(--tile-gap);
 
   ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
     display: flex;
     flex-direction: column;
     gap: var(--tile-gap);
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 }
 
 .sidebar-tile {
   position: relative;
   overflow: hidden;
+  min-height: clamp(3.625rem, 0.994rem + 5.48vw, 8.188rem);
   background-color: $bg-gray-300;
-  min-height: 131px;
-
-  @include mixins.breakpoint(xx-large) {
-    min-height: 108px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    min-height: 89px;
-  }
-
-  @include mixins.breakpoint(large) {
-    min-height: 73px;
-  }
-
-  @include mixins.breakpoint(medium) {
-    min-height: 58px;
-  }
 
   @include mixins.breakpoint(small) {
-    min-height: 76px;
+    min-height: clamp(4.75rem, -0.53rem + 26.4vw, 12.125rem);
   }
 
   img {
@@ -214,35 +150,31 @@ li.sidebar-tile {
 .sidebar-tile__holder {
   position: absolute;
   inset: 0;
-  color: $text-white;
-  display: flex;
-  padding: 17px 25px;
-  gap: 20px;
   z-index: 1;
+  display: flex;
+  gap: 20px;
+  padding: 17px 25px;
+  color: $text-white;
 
   @include mixins.breakpoint(xx-large) {
     padding: 10px 20px;
   }
 
   @include mixins.breakpoint(large) {
-    padding: 5px 10px;
     gap: 14px;
+    padding: 5px 10px;
+  }
+
+  @include mixins.breakpoint(small) {
+    padding: clamp(0.438rem, 0.08rem + 1.79vw, 0.938rem) clamp(0.625rem, 0.178rem + 2.24vw, 1.25rem);
   }
 
   &.column {
     flex-direction: column;
-    gap: 12px;
-
-    @include mixins.breakpoint(large) {
-      gap: 8px;
-    }
-
-    @include mixins.breakpoint(medium) {
-      gap: 4px;
-    }
+    gap: clamp(0.25rem, -0.038rem + 0.6vw, 0.75rem);
 
     @include mixins.breakpoint(small) {
-      gap: 8px;
+      gap: clamp(0.5rem, -0.216rem + 3.58vw, 1.5rem);
     }
 
     .sidebar-tile__title {
@@ -255,132 +187,77 @@ li.sidebar-tile {
   }
 
   .sidebar-tile__input {
+    height: auto;
+    padding: 2px 10px;
+    line-height: clamp(1.125rem, 0.548rem + 1.2vw, 2.125rem);
+    color: $input-text-white;
     border: 2px solid rgb(var(--white));
     background-color: $bg-input-white;
-    padding: 2px 10px;
-    line-height: 34px;
-    color: $input-text-white;
-    height: auto;
 
     @include mixins.transition(background-color 0.15s ease-in-out);
 
-    @include mixins.breakpoint(x-large) {
-      line-height: 24px;
-    }
-
-    @include mixins.breakpoint(large) {
-      line-height: 20px;
-    }
-
     @include mixins.breakpoint(medium) {
-      line-height: 18px;
       padding: 1px 7px;
     }
 
+    @include mixins.breakpoint(small) {
+      padding: clamp(0.063rem, -0.206rem + 1.34vw, 0.438rem)
+        clamp(0.438rem, 0.035rem + 2.01vw, 1rem);
+      font-size: clamp(1rem, -0.074rem + 5.37vw, 2.5rem);
+      line-height: clamp(1.25rem, -0.092rem + 6.71vw, 3.125rem);
+    }
+
     &:focus {
-      outline: none;
-      background-color: $bg-input-white-focus;
       border-color: rgb(var(--white));
+      background-color: $bg-input-white-focus;
+      outline: none;
     }
   }
 }
 
 .sidebar-tile__title {
-  font: 30px/1 $futura-std-book;
   flex-grow: 1;
-  letter-spacing: 0.6px;
   padding-top: 5px;
-
-  @include mixins.breakpoint(xx-large) {
-    font-size: 26px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    font-size: 20px;
-  }
-
-  @include mixins.breakpoint(large) {
-    font-size: 17px;
-  }
-
-  @include mixins.breakpoint(medium) {
-    font-size: 13px;
-  }
+  letter-spacing: 0.6px;
+  font: clamp(0.813rem, 0.2rem + 1.28vw, 1.875rem) / 1 $futura-std-book;
 
   @include mixins.breakpoint(small) {
-    font-size: 18px;
+    font-size: clamp(1.125rem, -0.217rem + 6.71vw, 3rem);
   }
 }
 
 .sidebar-tile__points {
-  text-align: right;
   align-self: center;
-  font: 26px/1.2 $futura-std-light;
-
-  @include mixins.breakpoint(xx-large) {
-    font-size: 22px;
-  }
-
-  @include mixins.breakpoint(x-large) {
-    font-size: 18px;
-  }
-
-  @include mixins.breakpoint(large) {
-    font-size: 16px;
-  }
-
-  @include mixins.breakpoint(medium) {
-    font-size: 13px;
-  }
+  text-align: right;
+  font: clamp(0.813rem, 0.344rem + 0.98vw, 1.625rem) / 1.2 $futura-std-light;
 
   @include mixins.breakpoint(small) {
-    font-size: 16px;
+    font-size: clamp(1rem, 0.016rem + 4.92vw, 2.375rem);
   }
 
   em {
     display: block;
     font-style: normal;
-    font-size: 48px;
+    font-size: clamp(1.25rem, 0.241rem + 2.1vw, 3rem);
     line-height: 1.1;
 
-    @include mixins.breakpoint(xx-large) {
-      font-size: 40px;
-    }
-
-    @include mixins.breakpoint(x-large) {
-      font-size: 32px;
-    }
-
-    @include mixins.breakpoint(large) {
-      font-size: 26px;
-    }
-
-    @include mixins.breakpoint(medium) {
-      font-size: 20px;
-    }
-
     @include mixins.breakpoint(small) {
-      font-size: 26px;
+      font-size: clamp(1.625rem, 0.104rem + 7.61vw, 3.75rem);
     }
   }
 }
 
 .sidebar-tile__ico {
-  text-indent: -9999px;
-  overflow: hidden;
-  background-color: rgb(var(--white));
   align-self: center;
-  width: 78px;
-  height: 78px;
+  width: clamp(2.5rem, 1.131rem + 2.85vw, 4.875rem);
+  height: clamp(2.5rem, 1.131rem + 2.85vw, 4.875rem);
+  overflow: hidden;
+  text-indent: -9999px;
+  background-color: rgb(var(--white));
 
-  @include mixins.breakpoint(xx-large) {
-    width: 50px;
-    height: 50px;
-  }
-
-  @include mixins.breakpoint(large) {
-    width: 40px;
-    height: 40px;
+  @include mixins.breakpoint(small) {
+    width: clamp(2.5rem, -0.185rem + 13.42vw, 6.25rem);
+    height: clamp(2.5rem, -0.185rem + 13.42vw, 6.25rem);
   }
 
   &.badge {
