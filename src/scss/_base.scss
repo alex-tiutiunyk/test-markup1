@@ -16,7 +16,8 @@ a {
   color: $link-primary-color;
   text-decoration: none;
 }
-a:hover {
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
@@ -78,7 +79,7 @@ select {
 
   &:focus {
     outline: none;
-    border-color: $border-gray-100;
+    border-color: $border-gray-200;
   }
 }
 
@@ -143,7 +144,8 @@ h6 {
     line-height: 34px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $bg-blue-200;
   }
 }

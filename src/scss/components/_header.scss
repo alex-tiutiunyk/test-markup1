@@ -79,7 +79,8 @@
       height: 28px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: $icon-bg-hover-color;
     }
   }
@@ -127,7 +128,8 @@
       padding: 10px 20px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $link-primary-color;
       text-decoration: none;
     }
@@ -189,6 +191,7 @@
     &:focus {
       outline: none;
       background-color: $bg-input-gray-focus;
+      color: $text-white;
     }
   }
 
@@ -210,7 +213,8 @@
       padding-bottom: 10px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $link-primary-color;
     }
   }

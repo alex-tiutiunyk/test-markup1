@@ -56,7 +56,8 @@
     @include mixins.transition(transform 0.15s ease-in-out);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: none;
 
     &:after {
@@ -162,7 +163,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       text-decoration: none;
     }
 
@@ -191,6 +193,7 @@
         border-color: rgb(var(--white));
         background-color: $bg-input-white-focus;
         outline: none;
+        color: $bg-gray-300;
       }
     }
   }
@@ -255,7 +258,7 @@
 }
 
 li.sidebar-tile {
-  &::after {
+  .sidebar-tile__holder::after {
     content: '';
     position: absolute;
     top: 0;
@@ -268,7 +271,8 @@ li.sidebar-tile {
     @include mixins.transition(transform 0.15s ease-in-out);
   }
 
-  &:hover::after {
+  .sidebar-tile__holder:hover::after,
+  .sidebar-tile__holder:focus::after {
     transform: translateX(0);
   }
 }

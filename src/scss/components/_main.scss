@@ -43,10 +43,6 @@
 
   &__item {
     position: relative;
-
-    &:hover .groups__link {
-      background-color: $bg-gray-200;
-    }
   }
 
   &__link {
@@ -62,8 +58,10 @@
       padding: 3px 28px 3px 7px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       text-decoration: none;
+      background-color: $bg-gray-300;
     }
   }
 
@@ -84,8 +82,9 @@
       width: 22px;
     }
 
-    &:hover {
-      background-color: rgb(var(--white) / 0.2);
+    &:hover,
+    &:focus {
+      background-color: $bg-gray-400;
     }
   }
 }
@@ -258,16 +257,23 @@
     }
   }
 
-  &__item {
+  &__button {
     position: relative;
     width: 104px;
     height: 104px;
+    font-size: 16px;
     background-color: $bg-gray-300;
+    border: none;
     cursor: pointer;
+    color: $text-white;
 
     @include mixins.breakpoint(medium) {
       width: 80px;
       height: 80px;
+    }
+
+    &:focus {
+      outline: none;
     }
 
     &:after {

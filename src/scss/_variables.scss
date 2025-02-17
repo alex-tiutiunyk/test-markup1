@@ -33,10 +33,10 @@ $icon-bg-hover-color: rgb(var(--orange));
 
 // input
 $bg-input-gray: rgb(var(--gray-300) / 0.2);
-$bg-input-gray-focus: rgb(var(--gray-300) / 0.3);
+$bg-input-gray-focus: rgb(var(--gray-300) / 0.8);
 
 $bg-input-white: rgb(var(--white) / 0.3);
-$bg-input-white-focus: rgb(var(--white) / 0.4);
+$bg-input-white-focus: rgb(var(--white) / 0.8);
 
 $input-text: rgb(var(--gray-600) / 0.6);
 $input-text-white: rgb(var(--white));
@@ -45,6 +45,7 @@ $input-text-white: rgb(var(--white));
 $bg-gray-100: rgb(var(--gray-100));
 $bg-gray-200: rgb(var(--gray-200));
 $bg-gray-300: rgb(var(--gray-300));
+$bg-gray-400: rgb(var(--gray-400));
 
 $bg-blue-50: rgb(var(--blue-50));
 $bg-blue-100: rgb(var(--blue-100));
@@ -53,6 +54,7 @@ $bg-blue-200: rgb(var(--blue-200));
 // border
 $border-gray-50: rgb(var(--gray-50));
 $border-gray-100: rgb(var(--gray-100));
+$border-gray-200: rgb(var(--gray-200));
 $border-gray-600: rgb(var(--gray-600));
 
 $border-blue-100: rgb(var(--blue-100));

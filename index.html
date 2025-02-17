@@ -3,33 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>REWARD YOUR PERFORMANCE</title>
+    <title>REWARD YOUR PERFORMANCE | Homepage</title>
     <link rel="icon" href="favicon.ico" />
   </head>
   <body>
-    <div class="container">
+    <noscript><div>Javascript must be enabled for the correct page display</div></noscript>
+
+    <div class="container" id="page">
+      <a class="accessibility" href="#content" accesskey="s">Skip to Content</a>
+
       <header class="header">
         <strong class="logo"><a href="#" class="logo__link">REWARD YOUR PERFORMANCE</a></strong>
         <div class="mobile-menu">
           <ul class="icons-list">
             <li><a href="#" class="icons-list__link inbox">inbox</a></li>
             <li><a href="#" class="icons-list__link approvals">approvals</a></li>
-            <li><a href="#" class="icons-list__link help">help</a></li>
+            <li><a href="#" class="icons-list__link help" accesskey="6">help</a></li>
           </ul>
           <nav class="nav">
             <ul class="nav__list">
-              <li><a href="#" class="nav__link">Home</a></li>
+              <li><a href="#" class="nav__link" accesskey="1">Home</a></li>
               <li><a href="#" class="nav__link">Recognize</a></li>
               <li><a href="#" class="nav__link">Network</a></li>
               <li><a href="#" class="nav__link">Leaderboard</a></li>
               <li><a href="#" class="nav__link">Programs</a></li>
-              <li><a href="#" class="nav__link">Activity</a></li>
+              <li><a href="#" class="nav__link" accesskey="2">Activity</a></li>
             </ul>
           </nav>
           <form class="search-bar">
             <fieldset class="search-bar__inner">
+              <legend class="hidden">Recognize Someone form</legend>
               <button type="button" class="search-bar__button">Recognize Someone Now</button>
-              <input type="search" name="search" class="search-bar__input" />
+              <input
+                type="search"
+                id="recognize"
+                class="search-bar__input"
+                accesskey="4"
+                aria-labelledby="search"
+              />
             </fieldset>
           </form>
         </div>
@@ -40,36 +51,38 @@
           <span></span>
           <span></span>
           <span></span>
+          <span class="hidden">Mobile menu opener</span>
         </button>
       </header>
 
       <div class="wrapper">
-        <main class="main">
+        <main class="main" id="content">
           <h1 class="page-title">RECOGNIZE</h1>
           <p>I would like to recognize the following group:</p>
           <ul class="groups">
             <li class="groups__item">
               <a href="#" class="groups__link">Dorian Greene</a
-              ><button class="groups__delete">x</button>
+              ><button type="button" class="groups__delete" aria-label="delete">x</button>
             </li>
             <li class="groups__item">
-              <a href="#" class="groups__link">Gus Levy</a><button class="groups__delete">x</button>
+              <a href="#" class="groups__link">Gus Levy</a
+              ><button type="button" class="groups__delete" aria-label="delete">x</button>
             </li>
             <li class="groups__item">
               <a href="#" class="groups__link">Jeremy Stevens</a
-              ><button class="groups__delete">x</button>
+              ><button type="button" class="groups__delete" aria-label="delete">x</button>
             </li>
             <li class="groups__item">
               <a href="#" class="groups__link">Brenda Owen</a
-              ><button class="groups__delete">x</button>
+              ><button type="button" class="groups__delete" aria-label="delete">x</button>
             </li>
             <li class="groups__item">
               <a href="#" class="groups__link">Michael LaRoche</a
-              ><button class="groups__delete">x</button>
+              ><button type="button" class="groups__delete" aria-label="delete">x</button>
             </li>
             <li class="groups__item">
               <a href="#" class="groups__link">Jeanette Lincoln</a
-              ><button class="groups__delete">x</button>
+              ><button type="button" class="groups__delete" aria-label="delete">x</button>
             </li>
           </ul>
           <a href="#" class="add-user-link">Add User</a>
@@ -77,7 +90,8 @@
             I’d like to recognize <a href="#">a group of colleagues</a> for the
             <a href="#">Peer-to-Peer Program</a>
           </p>
-          <div class="mb-3">
+          <fieldset class="mb-3">
+            <legend class="hidden">Criterias form</legend>
             <div class="form-row">
               <label for="criteria" class="form-row__label">Criteria</label>
               <select id="criteria" class="form-row__select">
@@ -94,7 +108,7 @@
                 <option>30</option>
               </select>
             </div>
-          </div>
+          </fieldset>
           <h2 class="page-subtitle">Personal Message:</h2>
           <div class="text-box">
             I would like to thank each of you for your outstanding contributions to helping us
@@ -131,53 +145,89 @@
                 </div>
               </div>
               <ul class="preview-tabs__list">
-                <li class="preview-tabs__item active">
-                  <img
-                    loading="lazy"
-                    src="/public/images/img-tabs-01.jpg"
-                    alt="Tab Image"
-                    class="preview-tabs__switcher"
-                  />
+                <li>
+                  <button
+                    type="button"
+                    class="preview-tabs__button active"
+                    aria-label="tab switcher 1"
+                  >
+                    <img
+                      loading="lazy"
+                      src="/public/images/img-tabs-01.jpg"
+                      alt="Tab Image 1"
+                      class="preview-tabs__switcher"
+                    />
+                  </button>
                 </li>
-                <li class="preview-tabs__item">
-                  <img
-                    loading="lazy"
-                    src="/public/images/img-tabs-02.jpg"
-                    alt="Tab Image"
-                    class="preview-tabs__switcher"
-                  />
+                <li>
+                  <button
+                    type="button"
+                    class="preview-tabs__button active"
+                    aria-label="tab switcher 2"
+                  >
+                    <img
+                      loading="lazy"
+                      src="/public/images/img-tabs-02.jpg"
+                      alt="Tab Image 2"
+                      class="preview-tabs__switcher"
+                    />
+                  </button>
                 </li>
-                <li class="preview-tabs__item">
-                  <img
-                    loading="lazy"
-                    src="/public/images/img-tabs-03.jpg"
-                    alt="Tab Image"
-                    class="preview-tabs__switcher"
-                  />
+                <li>
+                  <button
+                    type="button"
+                    class="preview-tabs__button active"
+                    aria-label="tab switcher 3"
+                  >
+                    <img
+                      loading="lazy"
+                      src="/public/images/img-tabs-03.jpg"
+                      alt="Tab Image 3"
+                      class="preview-tabs__switcher"
+                    />
+                  </button>
                 </li>
-                <li class="preview-tabs__item">
-                  <img
-                    loading="lazy"
-                    src="/public/images/img-tabs-04.jpg"
-                    alt="Tab Image"
-                    class="preview-tabs__switcher"
-                  />
+                <li>
+                  <button
+                    type="button"
+                    class="preview-tabs__button active"
+                    aria-label="tab switcher 4"
+                  >
+                    <img
+                      loading="lazy"
+                      src="/public/images/img-tabs-04.jpg"
+                      alt="Tab Image 4"
+                      class="preview-tabs__switcher"
+                    />
+                  </button>
                 </li>
-                <li class="preview-tabs__item">
-                  <img
-                    loading="lazy"
-                    src="/public/images/img-tabs-05.jpg"
-                    alt="Tab Image"
-                    class="preview-tabs__switcher"
-                  />
+                <li>
+                  <button
+                    type="button"
+                    class="preview-tabs__button active"
+                    aria-label="tab switcher 5"
+                  >
+                    <img
+                      loading="lazy"
+                      src="/public/images/img-tabs-05.jpg"
+                      alt="Tab Image 5"
+                      class="preview-tabs__switcher"
+                    />
+                  </button>
                 </li>
-                <li class="preview-tabs__item">
-                  <img
-                    loading="lazy"
-                    src="/public/images/img-tabs-06.jpg"
-                    alt="Tab Image"
-                    class="preview-tabs__switcher"
-                  />
+                <li>
+                  <button
+                    type="button"
+                    class="preview-tabs__button active"
+                    aria-label="tab switcher 6"
+                  >
+                    <img
+                      loading="lazy"
+                      src="/public/images/img-tabs-06.jpg"
+                      alt="Tab Image 6"
+                      class="preview-tabs__switcher"
+                    />
+                  </button>
                 </li>
               </ul>
             </div>
@@ -185,8 +235,9 @@
           <footer class="btn-row">
             <form action="#" class="send-box">
               <fieldset class="send-box__inner">
+                <legend class="hidden">Send Copy form</legend>
                 <button type="button" class="send-box__button btn">Send Copy To:</button>
-                <input type="email" class="send-box__input" name="email" autocomplete="email" />
+                <input type="email" class="send-box__input" autocomplete="email" />
               </fieldset>
             </form>
             <div>
@@ -208,7 +259,7 @@
               <li class="sidebar-tile">
                 <img
                   src="/images/img-tile-shopping.jpg"
-                  alt="Go Shopping"
+                  alt="Go Shopping Image"
                   class="sidebar-tile__img"
                 />
                 <a href="#" class="sidebar-tile__holder">
@@ -220,7 +271,11 @@
                 </a>
               </li>
               <li class="sidebar-tile">
-                <img src="/images/img-tile-budget.jpg" alt="My Budget" class="sidebar-tile__img" />
+                <img
+                  src="/images/img-tile-budget.jpg"
+                  alt="My Budget Image"
+                  class="sidebar-tile__img"
+                />
                 <a href="#" class="sidebar-tile__holder">
                   <h4 class="sidebar-tile__title">My Budget</h4>
                   <div class="sidebar-tile__points">
@@ -230,21 +285,33 @@
                 </a>
               </li>
               <li class="sidebar-tile">
-                <img src="/images/img-tile-badges.jpg" alt="My Badges" class="sidebar-tile__img" />
+                <img
+                  src="/images/img-tile-badges.jpg"
+                  alt="My Badges Image"
+                  class="sidebar-tile__img"
+                />
                 <a href="#" class="sidebar-tile__holder">
                   <h4 class="sidebar-tile__title">My Badges</h4>
                   <span class="sidebar-tile__ico badge">Badge</span>
                 </a>
               </li>
               <li class="sidebar-tile">
-                <img src="/images/img-tile-awards.jpg" alt="My Awards" class="sidebar-tile__img" />
+                <img
+                  src="/images/img-tile-awards.jpg"
+                  alt="My Awards Image"
+                  class="sidebar-tile__img"
+                />
                 <a href="#" class="sidebar-tile__holder">
                   <h4 class="sidebar-tile__title">My Awards</h4>
                   <span class="sidebar-tile__ico award">Award</span>
                 </a>
               </li>
               <li class="sidebar-tile">
-                <img src="/images/img-tile-quizzes.jpg" alt="Quizzes" class="sidebar-tile__img" />
+                <img
+                  src="/images/img-tile-quizzes.jpg"
+                  alt="Quizzes Image"
+                  class="sidebar-tile__img"
+                />
                 <a href="#" class="sidebar-tile__holder">
                   <h4 class="sidebar-tile__title">Quizzes</h4>
                   <span class="sidebar-tile__ico quizzes">Quizzes</span>
@@ -253,7 +320,11 @@
             </ul>
           </nav>
           <div class="sidebar-tile">
-            <img src="/images/img-tile-quizzes.jpg" alt="Quizzes" class="sidebar-tile__img" />
+            <img
+              src="/images/img-tile-quizzes.jpg"
+              alt="Redeem On-The-Spot Award Image"
+              class="sidebar-tile__img"
+            />
             <div href="#" class="sidebar-tile__holder column">
               <label class="sidebar-tile__title" for="award">Redeem On-The-Spot Award</label>
               <input type="text" id="award" class="sidebar-tile__input" />
@@ -261,6 +332,8 @@
           </div>
         </aside>
       </div>
+
+      <a class="accessibility" href="#page">Back to top</a>
     </div>
 
     <script type="module" src="/src/js/main.js"></script>
