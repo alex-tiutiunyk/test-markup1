@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 @mixin transition($value) {
   transition: $value;
 }
@@ -37,4 +35,15 @@
       @content;
     }
   }
+}
+
+@mixin text-hide {
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+@mixin list-reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }

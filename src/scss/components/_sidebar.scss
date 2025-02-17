@@ -64,7 +64,7 @@
     }
   }
 
-  img {
+  &__img {
     height: auto;
     width: clamp(3.125rem, -0.767rem + 8.11vw, 9.875rem);
     margin-top: 2px;
@@ -74,40 +74,39 @@
     }
   }
 
-  p {
+  &__inner {
+    flex-grow: 1;
+  }
+
+  &__title {
     margin: 0;
-  }
-}
+    font: clamp(0.875rem, 0.082rem + 1.65vw, 2.25rem) / 1 $futura-std-book;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
-.profile-tile__text {
-  flex-grow: 1;
-}
+    @include mixins.breakpoint(medium) {
+      padding-top: 4px;
+    }
 
-.profile-tile__title {
-  margin: 0;
-  font: clamp(0.875rem, 0.082rem + 1.65vw, 2.25rem) / 1 $futura-std-book;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  @include mixins.breakpoint(medium) {
-    padding-top: 4px;
+    @include mixins.breakpoint(small) {
+      font-size: clamp(1.25rem, -0.003rem + 6.26vw, 3rem);
+    }
   }
 
-  @include mixins.breakpoint(small) {
-    font-size: clamp(1.25rem, -0.003rem + 6.26vw, 3rem);
+  &__text {
+    margin: 0;
   }
 }
 
 .sidebar-nav {
   margin-bottom: var(--tile-gap);
 
-  ul {
+  &__list {
     display: flex;
     flex-direction: column;
     gap: var(--tile-gap);
-    padding: 0;
-    margin: 0;
-    list-style: none;
+
+    @include mixins.list-reset;
   }
 }
 
@@ -121,10 +120,137 @@
     min-height: clamp(4.75rem, -0.53rem + 26.4vw, 12.125rem);
   }
 
-  img {
+  &__img {
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  &__holder {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    gap: 20px;
+    padding: 17px 25px;
+    color: $text-white;
+
+    @include mixins.breakpoint(xx-large) {
+      padding: 10px 20px;
+    }
+
+    @include mixins.breakpoint(large) {
+      gap: 14px;
+      padding: 5px 10px;
+    }
+
+    @include mixins.breakpoint(small) {
+      padding: clamp(0.438rem, 0.08rem + 1.79vw, 0.938rem)
+        clamp(0.625rem, 0.178rem + 2.24vw, 1.25rem);
+    }
+
+    &.column {
+      flex-direction: column;
+      gap: clamp(0.25rem, -0.038rem + 0.6vw, 0.75rem);
+
+      @include mixins.breakpoint(small) {
+        gap: clamp(0.5rem, -0.216rem + 3.58vw, 1.5rem);
+      }
+
+      .sidebar-tile__title {
+        flex-grow: 0;
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .sidebar-tile__input {
+      height: auto;
+      padding: 2px 10px;
+      line-height: clamp(1.125rem, 0.548rem + 1.2vw, 2.125rem);
+      color: $input-text-white;
+      border: 2px solid rgb(var(--white));
+      background-color: $bg-input-white;
+
+      @include mixins.transition(background-color 0.15s ease-in-out);
+
+      @include mixins.breakpoint(medium) {
+        padding: 1px 7px;
+      }
+
+      @include mixins.breakpoint(small) {
+        padding: clamp(0.063rem, -0.206rem + 1.34vw, 0.438rem)
+          clamp(0.438rem, 0.035rem + 2.01vw, 1rem);
+        font-size: clamp(1rem, -0.074rem + 5.37vw, 2.5rem);
+        line-height: clamp(1.25rem, -0.092rem + 6.71vw, 3.125rem);
+      }
+
+      &:focus {
+        border-color: rgb(var(--white));
+        background-color: $bg-input-white-focus;
+        outline: none;
+      }
+    }
+  }
+
+  &__title {
+    flex-grow: 1;
+    padding-top: 5px;
+    letter-spacing: 0.6px;
+    font: clamp(0.813rem, 0.2rem + 1.28vw, 1.875rem) / 1 $futura-std-book;
+
+    @include mixins.breakpoint(small) {
+      font-size: clamp(1.125rem, -0.217rem + 6.71vw, 3rem);
+    }
+  }
+
+  &__points {
+    align-self: center;
+    text-align: right;
+    font: clamp(0.813rem, 0.344rem + 0.98vw, 1.625rem) / 1.2 $futura-std-light;
+
+    @include mixins.breakpoint(small) {
+      font-size: clamp(1rem, 0.016rem + 4.92vw, 2.375rem);
+    }
+
+    em {
+      display: block;
+      font-style: normal;
+      font-size: clamp(1.25rem, 0.241rem + 2.1vw, 3rem);
+      line-height: 1.1;
+
+      @include mixins.breakpoint(small) {
+        font-size: clamp(1.625rem, 0.104rem + 7.61vw, 3.75rem);
+      }
+    }
+  }
+
+  &__ico {
+    align-self: center;
+    width: clamp(2.5rem, 1.131rem + 2.85vw, 4.875rem);
+    height: clamp(2.5rem, 1.131rem + 2.85vw, 4.875rem);
+    background-color: rgb(var(--white));
+
+    @include mixins.text-hide;
+
+    @include mixins.breakpoint(small) {
+      width: clamp(2.5rem, -0.185rem + 13.42vw, 6.25rem);
+      height: clamp(2.5rem, -0.185rem + 13.42vw, 6.25rem);
+    }
+
+    &.badge {
+      @include mixins.mask-image('/icons/badge.svg');
+    }
+
+    &.award {
+      @include mixins.mask-image('/icons/award.svg');
+    }
+
+    &.quizzes {
+      @include mixins.mask-image('/icons/quizzes.svg');
+    }
   }
 }
 
@@ -144,131 +270,5 @@ li.sidebar-tile {
 
   &:hover::after {
     transform: translateX(0);
-  }
-}
-
-.sidebar-tile__holder {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  gap: 20px;
-  padding: 17px 25px;
-  color: $text-white;
-
-  @include mixins.breakpoint(xx-large) {
-    padding: 10px 20px;
-  }
-
-  @include mixins.breakpoint(large) {
-    gap: 14px;
-    padding: 5px 10px;
-  }
-
-  @include mixins.breakpoint(small) {
-    padding: clamp(0.438rem, 0.08rem + 1.79vw, 0.938rem) clamp(0.625rem, 0.178rem + 2.24vw, 1.25rem);
-  }
-
-  &.column {
-    flex-direction: column;
-    gap: clamp(0.25rem, -0.038rem + 0.6vw, 0.75rem);
-
-    @include mixins.breakpoint(small) {
-      gap: clamp(0.5rem, -0.216rem + 3.58vw, 1.5rem);
-    }
-
-    .sidebar-tile__title {
-      flex-grow: 0;
-    }
-  }
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  .sidebar-tile__input {
-    height: auto;
-    padding: 2px 10px;
-    line-height: clamp(1.125rem, 0.548rem + 1.2vw, 2.125rem);
-    color: $input-text-white;
-    border: 2px solid rgb(var(--white));
-    background-color: $bg-input-white;
-
-    @include mixins.transition(background-color 0.15s ease-in-out);
-
-    @include mixins.breakpoint(medium) {
-      padding: 1px 7px;
-    }
-
-    @include mixins.breakpoint(small) {
-      padding: clamp(0.063rem, -0.206rem + 1.34vw, 0.438rem)
-        clamp(0.438rem, 0.035rem + 2.01vw, 1rem);
-      font-size: clamp(1rem, -0.074rem + 5.37vw, 2.5rem);
-      line-height: clamp(1.25rem, -0.092rem + 6.71vw, 3.125rem);
-    }
-
-    &:focus {
-      border-color: rgb(var(--white));
-      background-color: $bg-input-white-focus;
-      outline: none;
-    }
-  }
-}
-
-.sidebar-tile__title {
-  flex-grow: 1;
-  padding-top: 5px;
-  letter-spacing: 0.6px;
-  font: clamp(0.813rem, 0.2rem + 1.28vw, 1.875rem) / 1 $futura-std-book;
-
-  @include mixins.breakpoint(small) {
-    font-size: clamp(1.125rem, -0.217rem + 6.71vw, 3rem);
-  }
-}
-
-.sidebar-tile__points {
-  align-self: center;
-  text-align: right;
-  font: clamp(0.813rem, 0.344rem + 0.98vw, 1.625rem) / 1.2 $futura-std-light;
-
-  @include mixins.breakpoint(small) {
-    font-size: clamp(1rem, 0.016rem + 4.92vw, 2.375rem);
-  }
-
-  em {
-    display: block;
-    font-style: normal;
-    font-size: clamp(1.25rem, 0.241rem + 2.1vw, 3rem);
-    line-height: 1.1;
-
-    @include mixins.breakpoint(small) {
-      font-size: clamp(1.625rem, 0.104rem + 7.61vw, 3.75rem);
-    }
-  }
-}
-
-.sidebar-tile__ico {
-  align-self: center;
-  width: clamp(2.5rem, 1.131rem + 2.85vw, 4.875rem);
-  height: clamp(2.5rem, 1.131rem + 2.85vw, 4.875rem);
-  overflow: hidden;
-  text-indent: -9999px;
-  background-color: rgb(var(--white));
-
-  @include mixins.breakpoint(small) {
-    width: clamp(2.5rem, -0.185rem + 13.42vw, 6.25rem);
-    height: clamp(2.5rem, -0.185rem + 13.42vw, 6.25rem);
-  }
-
-  &.badge {
-    @include mixins.mask-image('/icons/badge.svg');
-  }
-
-  &.award {
-    @include mixins.mask-image('/icons/award.svg');
-  }
-
-  &.quizzes {
-    @include mixins.mask-image('/icons/quizzes.svg');
   }
 }

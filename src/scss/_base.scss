@@ -57,14 +57,14 @@ select {
 
   @include mixins.transition(border-color 0.15s ease-in-out);
 
-  @include mixins.breakpoint(x-large) {
+  @include mixins.breakpoint(xx-large) {
     height: 40px;
     line-height: 30px;
     font-size: 20px;
     border-width: 2px;
   }
 
-  @include mixins.breakpoint(large) {
+  @include mixins.breakpoint(x-large) {
     height: 36px;
     line-height: 26px;
     font-size: 16px;
@@ -136,13 +136,13 @@ h6 {
 
   @include mixins.transition(background-color 0.15s ease-in-out);
 
-  @include mixins.breakpoint(x-large) {
+  @include mixins.breakpoint(xx-large) {
     padding: 0 10px 2px;
     font-size: 20px;
     line-height: 38px;
   }
 
-  @include mixins.breakpoint(large) {
+  @include mixins.breakpoint(x-large) {
     padding: 0 10px 2px;
     font-size: 16px;
     line-height: 34px;

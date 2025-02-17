@@ -9,19 +9,19 @@
 
 .logo {
   display: block;
-  overflow: hidden;
   width: clamp(7.938rem, 5.356rem + 11.01vw, 19.813rem);
   height: clamp(3.625rem, 2.429rem + 5.1vw, 9.125rem);
   margin-bottom: clamp(2.5rem, 0.878rem + 3.38vw, 5.313rem);
-  text-indent: -9999px;
   background-image: url('/public/images/logo.png');
   background-size: 100% 100%;
+
+  @include mixins.text-hide;
 
   @include mixins.breakpoint(small) {
     margin: 0;
   }
 
-  a {
+  &__link {
     display: block;
     height: 100%;
   }
@@ -51,11 +51,10 @@
   display: flex;
   gap: 32px;
   position: absolute;
-  list-style: none;
   top: clamp(3.75rem, 2.128rem + 3.38vw, 6.563rem);
   right: 0;
-  padding: 0;
-  margin: 0;
+
+  @include mixins.list-reset;
 
   @include mixins.breakpoint(large) {
     gap: 20px;
@@ -66,14 +65,13 @@
     padding: 37px 52px 20px 20px;
   }
 
-  a {
+  &__link {
     display: block;
-    overflow: hidden;
     width: 34px;
     height: 34px;
-    text-indent: -9999px;
     background: $icon-bg-color;
 
+    @include mixins.text-hide;
     @include mixins.transition(background 0.15s ease-in-out);
 
     @include mixins.breakpoint(large) {
@@ -108,19 +106,18 @@
     margin-bottom: 25px;
   }
 
-  ul {
+  &__list {
     display: flex;
     justify-content: space-between;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+    @include mixins.list-reset;
 
     @include mixins.breakpoint(small) {
       flex-direction: column;
     }
   }
 
-  a {
+  &__link {
     color: $link-secondary-color;
 
     @include mixins.transition(color 0.15s ease-in-out);
@@ -152,7 +149,7 @@
     padding-bottom: 15px;
   }
 
-  fieldset {
+  &__inner {
     display: flex;
     gap: 24px;
     align-items: center;
@@ -194,28 +191,28 @@
       background-color: $bg-input-gray-focus;
     }
   }
-}
 
-.search-bar__button {
-  padding: 0;
-  letter-spacing: 1.7px;
-  font-size: clamp(1rem, -3.173rem + 6.73vw, 1.875rem);
-  color: $text-secondary;
-  background: none;
-  cursor: pointer;
-  border: none;
+  &__button {
+    padding: 0;
+    letter-spacing: 1.7px;
+    font-size: clamp(1rem, -3.173rem + 6.73vw, 1.875rem);
+    color: $text-secondary;
+    background: none;
+    cursor: pointer;
+    border: none;
 
-  @include mixins.transition(color 0.15s ease-in-out);
+    @include mixins.transition(color 0.15s ease-in-out);
 
-  @include mixins.breakpoint(small) {
-    order: 1;
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
+    @include mixins.breakpoint(small) {
+      order: 1;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
 
-  &:hover {
-    color: $link-primary-color;
+    &:hover {
+      color: $link-primary-color;
+    }
   }
 }
 
@@ -227,12 +224,11 @@
   z-index: 101;
   width: 28px;
   height: 25px;
-  overflow: hidden;
-  text-indent: -9999px;
   cursor: pointer;
   border: none;
   background: none;
 
+  @include mixins.text-hide;
   @include mixins.transform(rotate(0deg));
   @include mixins.transition(0.15s ease-in-out);
 
