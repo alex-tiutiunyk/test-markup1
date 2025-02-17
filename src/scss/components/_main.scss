@@ -261,11 +261,12 @@
     position: relative;
     width: 104px;
     height: 104px;
+    padding: 0;
     font-size: 16px;
     background-color: $bg-gray-300;
+    color: $text-white;
     border: none;
     cursor: pointer;
-    color: $text-white;
 
     @include mixins.breakpoint(medium) {
       width: 80px;
@@ -290,7 +291,8 @@
     }
 
     &:hover:after,
-    &.active:after {
+    &.active:after,
+    &:focus:after {
       border-color: $border-blue-100;
     }
   }
