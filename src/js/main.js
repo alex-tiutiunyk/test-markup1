@@ -1,8 +1,8 @@
 import '../scss/index.scss';
 
-isMobileMenu();
+toogleMobileMenu();
 
-function isMobileMenu() {
+function toogleMobileMenu() {
   const burger = document.getElementById('burger');
 
   const handleBurger = () => {

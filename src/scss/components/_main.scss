@@ -154,14 +154,19 @@
     flex-direction: column;
   }
 
-  &__content {
+  &__inner {
     width: 56.5%;
-    display: flex;
-    position: relative;
 
     @include mixins.breakpoint(x-large) {
       width: 100%;
     }
+  }
+
+  &__content {
+    display: flex;
+    position: relative;
+
+    @include mixins.transition(border-color 0.15s ease-in-out);
 
     @include mixins.breakpoint(medium) {
       flex-direction: column;
