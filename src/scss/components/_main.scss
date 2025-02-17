@@ -78,6 +78,8 @@
     background: none;
     cursor: pointer;
 
+    @include mixins.transition(background-color 0.15s ease-in-out);
+
     @include mixins.breakpoint(large) {
       width: 22px;
     }

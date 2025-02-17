@@ -1,6 +1,11 @@
 @use 'variables' as *;
 @use 'mixins';
 
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
 *,
 ::after,
 ::before {
@@ -88,16 +93,6 @@ select {
   @include mixins.breakpoint(large) {
     padding-left: 5px;
     line-height: 30px;
-  }
-}
-
-.container {
-  max-width: 2140px;
-  margin: 0 auto;
-  padding: 0 20px;
-
-  @include mixins.breakpoint(small) {
-    padding: 0 15px;
   }
 }
 

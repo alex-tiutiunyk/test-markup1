@@ -1,6 +1,16 @@
 @use 'variables' as *;
 @use 'mixins';
 
+.container {
+  max-width: 2140px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include mixins.breakpoint(small) {
+    padding: 0 15px;
+  }
+}
+
 // font size
 .text-lg {
   font-size: clamp(1.125rem, 0.454rem + 1.08vw, 1.875rem);
